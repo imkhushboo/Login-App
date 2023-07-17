@@ -1,0 +1,37 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+@tailwind screens;
+
+.glass{
+    background-color: rgb(255 255 255 / 0.3);
+    backdrop-filter: blur(10px);
+    border-radius: 16px;
+    box-shadow:0px 2px 2px 1px rgba(152, 152, 155, 0.2);
+    @apply border-4 border-gray-100 py-5 px-4 
+}
+
+.profile_img{
+    @apply border-4 border-gray-100 rounded-full shadow-black w-[135px] h-[135px];
+    @apply hover:border-gray-900;
+}
+
+.textbox{
+   @apply border-0 px-5 py-4 my-2 rounded-xl  shadow-md text-lg focus:outline-none
+}
+
+.btn {
+    @apply px-4 py-3 my-2 font-bold rounded-lg  bg-indigo-700 text-gray-200;
+    border-radius: 4px;
+  }
+.btn {
+  transition-duration: 0.4s;
+}
+
+.btn:hover {
+    @apply bg-red-500
+}
+
+input[type='file']{
+    display:none;
+}
