@@ -12,9 +12,16 @@ import HelperState from './context/helperState';
 import Authprotected from './middleware/Authprotected';
 import Passwordprotected from './middleware/Passwordprotected';
 import Loginprotected from './middleware/Loginprotected';
+import { useEffect, useState } from 'react';
 
 
 function App() {
+  const [message, setMessage] = useState("");
+  useEffect(() => {
+    fetch("https://loginapp-tsek.onrender.com/")
+      .then((res) => res.json())
+      .then((data) => setMessage(data.message));
+  }, []);
   return (
     <HelperState>
       <BrowserRouter>
