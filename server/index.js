@@ -3,10 +3,10 @@ var cors = require('cors');
 var bodyParser = require('body-parser');
 const morgan = require('morgan');
 const mongodb = require('./database/db.js');
-const port = "https://loginapp-tsek.onrender.com/";
+const port = "https://loginapp-tsek.onrender.com";
 const app = express();
 const corsOptions = {
-    origin: 'https://newloginapp.onrender.com/',
+    origin: 'https://newloginapp.onrender.com',
     credentials: true,            //access-control-allow-credentials:true
     optionSuccessStatus: 200
 }
