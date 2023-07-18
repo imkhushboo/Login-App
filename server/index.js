@@ -6,7 +6,7 @@ const mongodb = require('./database/db.js');
 const port = 8080;
 const app = express();
 const corsOptions = {
-    origin: 'http://localhost:3000',
+    origin: 'https://newloginapp.onrender.com/',
     credentials: true,            //access-control-allow-credentials:true
     optionSuccessStatus: 200
 }
