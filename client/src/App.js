@@ -17,15 +17,12 @@ import { useEffect, useState } from 'react';
 
 function App() {
   const [message, setMessage] = useState("");
-  useEffect(() => {
-    fetch("https://loginapp-tsek.onrender.com")
-      .then((res) => res.json())
-      .then((data) => setMessage(data.message));
-  }, []);
+
   return (
     <HelperState>
       <BrowserRouter>
         <Routes>
+
           <Route exact path="/reset" element={<Reset />} />
           <Route exact path="/password" element={<Passwordprotected><Password /></Passwordprotected>} />
           <Route exact path="/register" element={<Register />} />

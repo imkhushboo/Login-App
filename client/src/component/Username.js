@@ -24,7 +24,7 @@ const Username = () => {
             console.log(values.username);
             const { status, data } = await authenticate(values.username);
             if (status != 200) {
-                toast.error(data);
+                toast.error("Usern not found");
             }
             else {
                 setProfile({ ...profile, name: values.username });

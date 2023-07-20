@@ -2,8 +2,9 @@ import React, { useEffect, useState } from "react";
 import helperContext from "./helperContext";
 import axios from 'axios';
 import jwt_decode from 'jwt-decode';
-import env from "../"
-axios.defaults.baseURL = process.env.REACT_APP_SERVER_DOMAIN;
+
+axios.defaults.baseURL = "http://localhost:8080";
+
 
 
 
@@ -69,7 +70,7 @@ const HelperState = (props) => {
             console.log(credentials);
             const { data: { msg }, status } = await axios.post(`api/register`, credentials, {
                 headers: {
-                    'Access-Control-Allow-Origin': "http://localhost:3001",
+                    'Access-Control-Allow-Origin': "*",
                     "Content-Type": "application/json",
                 }
             });

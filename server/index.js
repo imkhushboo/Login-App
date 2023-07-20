@@ -20,13 +20,10 @@ app.use(morgan('tiny'));
 app.disable('x-powered-by');
 
 
-app.get('/', (req, res) => {
-    res.status(200).send("Hi i am here!!");
-})
 
-app.use('/api', require('./routes/auth.js'), (res, req) => {
-    res.setHeader("Access-Control-Allow-Origin", "*");
-})
+
+app.use('/api', require('./routes/auth.js'));
+
 
 app.listen(port, () => {
     console.log(`App is listening to port${port}`);
