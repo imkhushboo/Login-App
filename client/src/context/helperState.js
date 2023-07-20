@@ -9,6 +9,7 @@ axios.defaults.baseURL = "http://localhost:8080";
 
 
 const HelperState = (props) => {
+    const val = "value";
     // const [username, setUsername] = useState("example@123");
     const [profile, setProfile] = useState({ "token": "", "name": "", "profile": "", "email": "", "firstname": "", "lastname": "", "mobile": "", "address": "", "isloading": true, "serverError": null, "status": undefined });
     useEffect(() => {
@@ -43,12 +44,11 @@ const HelperState = (props) => {
             getUsername().then((response) => {
                 setProfile({ ...profile, name: response.username });
             }).catch((err) => {
+                console.log("do baar");
                 console.log(err);
             })
         }
-
-
-    }, [profile.name])
+    }, [profile.name]);
 
 
     const authenticate = async (username) => {

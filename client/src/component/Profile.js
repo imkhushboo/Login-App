@@ -19,7 +19,7 @@ const Profile = () => {
     useEffect(() => {
         console.log(profile);
         formik.setValues(profile);
-    }, [profile])
+    }, [profile.name])
     const formik = useFormik({
         initialValues: {
             'firstname': profile.firstname || '',

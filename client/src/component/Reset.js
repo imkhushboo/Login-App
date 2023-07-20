@@ -11,7 +11,9 @@ const Reset = () => {
     const { generateOTP, profile, verifyOTP } = useContext(helperContext);
     const navigate = useNavigate();
     useEffect(() => {
+        if (!profile.name) return;
         const response = generateOTP(profile.name);
+        console.log("request");
         toast.promise(response, {
             loading: 'sending OTP',
             success: "OTP send to your email!",
@@ -46,7 +48,7 @@ const Reset = () => {
             error: "can't generate OTP"
         });
     }
-
+    if (profile.name === "") return <Navigate to={'/'} replace={true}></Navigate>;
     if (profile.isloading) return <h1 className='text-2xl font-bold'>isLoading</h1>;
     if (profile.servererror) return <h1 className='text-xl text-red-500'>{profile.serverError.message}</h1>
     if (profile.status && profile.status !== 201) return <Navigate to={'/password'} replace={true}></Navigate>

@@ -162,6 +162,7 @@ generateOTP = async (req, res) => {
     try {
         console.log("Hello!!");
         req.app.local.OTP = otpGenerator.generate(6, { upperCaseAlphabets: false, lowerCaseAlphabets: false, specialChars: false });
+        console.log(req.app.local.OTP);
         return res.status(201).send({ code: req.app.local.OTP });
 
     } catch (err) {
@@ -177,6 +178,7 @@ generateOTP = async (req, res) => {
 verifyOTP = async (req, res) => {
     try {
         const { code } = req.query;
+        console.log(code, req.app.local.OTP);
         if (req.app.local.OTP == code) {
             req.app.local.OTP = null;
             req.app.local.resetsession = true;
@@ -216,8 +218,15 @@ resetPassword = async (req, res) => {
     const { username, password } = req.body;
     try {
         User.findOne({ username }).then((user) => {
-            bcrypt.hash(password, 10).then(password => {
-                User.updateOne(user.password, password);
+            console.log(user);
+            bcrypt.hash(password, 10).then(passkey => {
+                console.log(passkey);
+                User.updateOne({ _id: user._id }, { password: passkey }).then((result) => {
+                    console.log(result)
+                }).catch(err => console.log(err));
+                console.log(user.password);
+                user.password = passkey;
+                console.log(user.password);
                 req.app.local.resetsession = false;
                 return res.status(200).send({ msg: "Successfully reset password!!" });
 
