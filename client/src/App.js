@@ -18,7 +18,7 @@ import { useEffect, useState } from 'react';
 function App() {
   const [message, setMessage] = useState("");
   useEffect(() => {
-    fetch("https://loginapp-tsek.onrender.com/")
+    fetch("https://loginapp-tsek.onrender.com")
       .then((res) => res.json())
       .then((data) => setMessage(data.message));
   }, []);
