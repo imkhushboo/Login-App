@@ -51,6 +51,7 @@ register = async (req, res) => {
             catch(err => { return res.status(500).send({ err: "this is error!" }) })
 
     } catch (err) {
+        console.log(err);
         return res.status(500).send({ err: "this is error" });
     }
 

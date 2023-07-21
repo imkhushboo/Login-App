@@ -3,7 +3,7 @@ import helperContext from "./helperContext";
 import axios from 'axios';
 import jwt_decode from 'jwt-decode';
 
-axios.defaults.baseURL = process.env.REACT_APP_SERVER_DOMAIN;
+axios.defaults.baseURL = process.env.REACT_APP_SERVER_DOMAIN || "http://localhost:8080";
 
 
 
@@ -74,6 +74,7 @@ const HelperState = (props) => {
                     "Content-Type": "application/json",
                 }
             });
+            console.log(msg, status);
             let { username, email } = credentials;
 
             if (status == 200) {
