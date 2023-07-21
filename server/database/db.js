@@ -8,7 +8,6 @@ async function connectToMongodb() {
         const uri = "mongodb://127.0.0.1:27017/login_app";
         console.log(uri);
         const db = await mongoose.connect(uri);
-        db.catch
         console.log("connected to mongodb");
         return db;
     }
