@@ -1,9 +1,12 @@
 const express = require('express');
+const path = require('path');
 var cors = require('cors');
 var bodyParser = require('body-parser');
 const morgan = require('morgan');
 const mongodb = require('./database/db.js');
-const port = 8080;
+require('dotenv').config();
+console.log(process.env);
+const PORT = process.env.PORT || 8080;
 const app = express();
 const corsOptions = {
     origin: '*',
@@ -24,8 +27,12 @@ app.disable('x-powered-by');
 
 app.use('/api', require('./routes/auth.js'));
 
+app.use(express.static(path.join(__dirname, './client/build')));
+app.get('*', function (req, res) {
+    res.sendFile(path.join(__dirname, './client/build/index.html'))
+})
 
-app.listen(port, () => {
-    console.log(`App is listening to port${port}`);
+app.listen(PORT, () => {
+    console.log(`App is listening to port${PORT}`);
 })
 mongodb();
