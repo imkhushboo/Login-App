@@ -5,7 +5,7 @@ async function connectToMongodb() {
     try {
         mongoServer = await MongoMemoryServer.create();
         // const uri = mongoServer.getUri();
-        const uri = "mongodb://127.0.0.1:27017/login_app";
+        const uri = "mongodb+srv://imkhushboo:Tiaragill_14@cluster0.he2ykfn.mongodb.net/test";
         console.log(uri);
         const db = await mongoose.connect(uri);
         console.log("connected to mongodb");
