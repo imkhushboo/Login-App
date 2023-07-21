@@ -27,9 +27,9 @@ app.disable('x-powered-by');
 
 app.use('/api', require('./routes/auth.js'));
 
-app.use(express.static(path.join(__dirname, './client/build')));
+app.use(express.static(path.join(__dirname, '../client/build')));
 app.get('*', function (req, res) {
-    res.sendFile(path.join(__dirname, './client/build/index.html'))
+    res.sendFile(path.join(__dirname, '../client/build/index.html'))
 })
 
 app.listen(PORT, () => {
