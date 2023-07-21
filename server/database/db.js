@@ -12,7 +12,7 @@ async function connectToMongodb() {
         return db;
     }
     catch (err) {
-        console.log("error occured while connecting to mongodb!!");
+        console.log(err);
     }
 
 }
