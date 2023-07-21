@@ -5,7 +5,7 @@ var bodyParser = require('body-parser');
 const morgan = require('morgan');
 const mongodb = require('./database/db.js');
 require('dotenv').config();
-console.log(process.env);
+// console.log(process.env);
 const PORT = process.env.PORT || 8080;
 const app = express();
 const corsOptions = {

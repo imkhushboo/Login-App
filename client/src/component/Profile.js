@@ -16,10 +16,12 @@ import helperContext from '../context/helperContext'
 const Profile = () => {
     const { profile, setProfile, updateUser } = useContext(helperContext);
     const navigate = useNavigate();
+    // const token = localStorage.getItem(token);
     useEffect(() => {
+
         console.log(profile);
         formik.setValues(profile);
-    }, [profile.name])
+    }, [profile.email])
     const formik = useFormik({
         initialValues: {
             'firstname': profile.firstname || '',

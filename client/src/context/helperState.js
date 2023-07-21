@@ -48,7 +48,7 @@ const HelperState = (props) => {
                 console.log(err);
             })
         }
-    }, [profile.name]);
+    }, [profile.name, profile.email]);
 
 
     const authenticate = async (username) => {
